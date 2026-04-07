@@ -23,3 +23,35 @@ body{
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
+
+/* 4.The inputs */
+input{
+    width: 100%;
+    padding:12px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+/* 5.Buttons */
+button{
+    width: 100%;
+    background-color: #2e7d32;
+    padding: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 18px;
+}
+
+/* 6.The Clear Button */
+#clearBtn{
+    background-color: rgb(265, 0, 0);
+    margin-top: 10px;
+    border: 2px solid rgb(152, 226, 4);
+    color: white;
+    padding: 6px;
+    width: 20%;
+    font-weight: bold;
+}
