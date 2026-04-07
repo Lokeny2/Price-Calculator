@@ -24,8 +24,9 @@ for(let i = 0;i < inventory.length;i++){
 
 //The Output
 if(itemFound){
-    const total = foundPrice * quantity;
-    display.innerText = `Total for ${quantity} ${searchFor}(s)`;
+    const qtyNum = Number(quantity)
+    const total = foundPrice * qtyNum;
+    display.innerText = `Total for ${qtyNum} ${searchFor}(s): KSh.${total}.`;
     display.style.color = "green";
 }
 else{
