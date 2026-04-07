@@ -25,7 +25,12 @@ for(let i = 0;i < inventory.length;i++){
 //The Output
 if(itemFound){
     const qtyNum = Number(quantity)
-    const total = foundPrice * qtyNum;
+    let total = foundPrice * qtyNum;
+    
+    if(qtyNum > 10){
+        total = total * 0.9;
+    }
+
     display.innerText = `Total for ${qtyNum} ${searchFor}(s): KSh.${total}.`;
     display.style.color = "green";
 }
