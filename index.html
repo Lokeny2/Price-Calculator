@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tanite Price Calculator</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main>
-            <div class="calculator">
-               <h2>Fruit Market 🍎</h2>
-  
-               <input type="text" id="fruitInput" placeholder="Enter fruit (e.g. Apple)">
-               <input type="number" id="qtyInput" placeholder="Quantity" min="1">
-  
+        <main><div class="input-group">
+                <select id="productSelect">
+                    <option value="" disabled selected>Choose a product...</option>
+                </select>
+                <input type="number" id="qtyInput" placeholder="Quantity" min="1">
                <button id="calcBtn">Calculate Total</button>
   
                <p id="receipt" style="font-weight: bold; margin-top: 15px;"></p>
+
+               <button id="clearBtn">Clear</button>
             </div>
         </main>
     </body>
