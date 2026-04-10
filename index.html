@@ -7,18 +7,52 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main><div class="input-group">
-                <select id="productSelect">
-                    <option value="" disabled selected>Choose a product...</option>
-                </select>
-                <input type="number" id="qtyInput" placeholder="Quantity" min="1">
-               <button id="calcBtn">Calculate Total</button>
-  
-               <p id="receipt" style="font-weight: bold; margin-top: 15px;"></p>
+        <main>
+            <div class="calculator">
 
-               <button id="clearBtn">Clear</button>
+                <!--The Header -->
+                <div class="calc-header">
+                    <h1>Tanite Mini-Mart</h1>
+                    <p class="subtitle">Fresh prices, every day</p>
+                </div>
+
+                <div class="filter-row">
+                    <button class="filter-btn active" data-category="All">All</button>
+                    <button class="filter-btn" data-category="Fruit">Fruit</button>
+                    <button class="filter-btn" data-category="Vegetable">Vegetable</button>
+                    <button class="filter-btn" data-category="Dairy">Dairy</button>
+                    <button class="filter-btn" data-category="Grain">Grain</button>
+                    <button class="filter-btn" data-category="Grocery">Grocery</button>
+                </div>
+
+                <!-- User Inputs -->
+                <div class="input-section">
+                    <label for="productSelect">Product</label>
+                    <select id="productSelect">
+                        <option value="" disabled selected>Choose a product...</option>
+                    </select>
+
+                    <label for="qtyInput">Quantity</label>
+                    <input type="number" id="qtyInput" placeholder="e.g. 3" min="1">
+
+                    <!-- Live price preview -->
+                    <p id="pricePreview" class="price-preview"></p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-row">
+                    <button id="calcBtn" class="btn-primary">Calculate Total</button>
+                    <button id="clearBtn" class="btn-secondary">Clear</button>
+                </div>
+
+                <!-- Receipt Output -->
+                <div id="receiptBox" class="receipt-box hidden">
+                    <p id="receipt"></p>
+                    <p id="discountNote" class="discount-note"></p>
+                </div>
+
             </div>
         </main>
+        <script src="script.js"></script>
     </body>
-    <script src="script.js"></script>
 </html>
