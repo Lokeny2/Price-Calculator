@@ -1,64 +1,64 @@
 // 1: Expanded Inventory Database (100 items)
 const inventory = [
     // FRUITS (20)
-    {name: "Apple", price: 50, category: "Fruit"}, {name: "Banana", price: 30, category: "Fruit"},
-    {name: "Cherry", price: 80, category: "Fruit"}, {name: "Date", price: 100, category: "Fruit"},
-    {name: "Mango", price: 60, category: "Fruit"}, {name: "Orange", price: 40, category: "Fruit"},
-    {name: "Papaya", price: 120, category: "Fruit"}, {name: "Watermelon", price: 350, category: "Fruit"},
-    {name: "Pineapple", price: 150, category: "Fruit"}, {name: "Avocado", price: 50, category: "Fruit"},
-    {name: "Passion Fruit", price: 20, category: "Fruit"}, {name: "Lemon", price: 15, category: "Fruit"},
-    {name: "Lime", price: 10, category: "Fruit"}, {name: "Grape", price: 200, category: "Fruit"},
-    {name: "Strawberry", price: 250, category: "Fruit"}, {name: "Plum", price: 70, category: "Fruit"},
-    {name: "Pear", price: 90, category: "Fruit"}, {name: "Guava", price: 45, category: "Fruit"},
-    {name: "Tangerine", price: 35, category: "Fruit"}, {name: "Kiwi", price: 110, category: "Fruit"},
+    {name: "Apple", price: 50, category: "Fruit", unit: "piece"}, {name: "Banana", price: 30, category: "Fruit", unit: "piece"},
+    {name: "Cherry", price: 80, category: "Fruit", unit: "piece"}, {name: "Date", price: 100, category: "Fruit", unit: "piece"},
+    {name: "Mango", price: 60, category: "Fruit", unit: "piece"}, {name: "Orange", price: 40, category: "Fruit", unit: "piece"},
+    {name: "Papaya", price: 120, category: "Fruit", unit: "piece"}, {name: "Watermelon", price: 350, category: "Fruit", unit: "piece"},
+    {name: "Pineapple", price: 150, category: "Fruit", unit: "piece"}, {name: "Avocado", price: 50, category: "Fruit", unit: "piece"},
+    {name: "Passion Fruit", price: 20, category: "Fruit", unit: "piece"}, {name: "Lemon", price: 15, category: "Fruit", unit: "piece"},
+    {name: "Lime", price: 10, category: "Fruit", unit: "piece"}, {name: "Grape", price: 200, category: "Fruit", unit: "piece"},
+    {name: "Strawberry", price: 250, category: "Fruit", unit: "piece"}, {name: "Plum", price: 70, category: "Fruit", unit: "piece"},
+    {name: "Pear", price: 90, category: "Fruit", unit: "piece"}, {name: "Guava", price: 45, category: "Fruit", unit: "piece"},
+    {name: "Tangerine", price: 35, category: "Fruit", unit: "piece"}, {name: "Kiwi", price: 110, category: "Fruit", unit: "piece"},
 
     // VEGETABLES (20)
-    {name: "Sukuma Wiki", price: 20, category: "Vegetable"}, {name: "Tomato", price: 15, category: "Vegetable"},
-    {name: "Onion", price: 10, category: "Vegetable"}, {name: "Cabbage", price: 50, category: "Vegetable"},
-    {name: "Spinach", price: 25, category: "Vegetable"}, {name: "Carrot", price: 10, category: "Vegetable"},
-    {name: "Potato", price: 40, category: "Vegetable"}, {name: "Capsicum", price: 30, category: "Vegetable"},
-    {name: "Cucumber", price: 35, category: "Vegetable"}, {name: "Ginger", price: 150, category: "Vegetable"},
-    {name: "Garlic", price: 200, category: "Vegetable"}, {name: "Broccoli", price: 180, category: "Vegetable"},
-    {name: "Cauliflower", price: 120, category: "Vegetable"}, {name: "Eggplant", price: 45, category: "Vegetable"},
-    {name: "Pumpkin", price: 150, category: "Vegetable"}, {name: "Beetroot", price: 60, category: "Vegetable"},
-    {name: "Zucchini", price: 80, category: "Vegetable"}, {name: "Celery", price: 90, category: "Vegetable"},
-    {name: "Green Beans", price: 70, category: "Vegetable"}, {name: "Peas", price: 130, category: "Vegetable"},
+    {name: "Sukuma Wiki", price: 20, category: "Vegetable", unit: "bundle"}, {name: "Tomato", price: 15, category: "Vegetable", unit: "piece"},
+    {name: "Onion", price: 10, category: "Vegetable", unit: "piece"}, {name: "Cabbage", price: 50, category: "Vegetable", unit: "piece"},
+    {name: "Spinach", price: 25, category: "Vegetable", unit: "bundle"}, {name: "Carrot", price: 10, category: "Vegetable", unit: "piece"},
+    {name: "Potato", price: 40, category: "Vegetable", unit: "piece"}, {name: "Capsicum", price: 30, category: "Vegetable", unit: "piece"},
+    {name: "Cucumber", price: 35, category: "Vegetable", unit: "piece"}, {name: "Ginger", price: 150, category: "Vegetable", unit: "kg"},
+    {name: "Garlic", price: 200, category: "Vegetable", unit: "piece"}, {name: "Broccoli", price: 180, category: "Vegetable", unit: "piece"},
+    {name: "Cauliflower", price: 120, category: "Vegetable", unit: "piece"}, {name: "Eggplant", price: 45, category: "Vegetable", unit: "piece"},
+    {name: "Pumpkin", price: 150, category: "Vegetable", unit: "piece"}, {name: "Beetroot", price: 60, category: "Vegetable", unit: "piece"},
+    {name: "Zucchini", price: 80, category: "Vegetable", unit: "piece"}, {name: "Celery", price: 90, category: "Vegetable", unit: "bundle"},
+    {name: "Green Beans", price: 70, category: "Vegetable", unit: "packet"}, {name: "Peas", price: 130, category: "Vegetable", unit: "packet"},
 
     // DAIRY (20)
-    {name: "Fresh Milk", price: 70, category: "Dairy"}, {name: "Yogurt", price: 120, category: "Dairy"},
-    {name: "Cheese", price: 450, category: "Dairy"}, {name: "Butter", price: 300, category: "Dairy"},
-    {name: "Margarine", price: 180, category: "Dairy"}, {name: "Heavy Cream", price: 250, category: "Dairy"},
-    {name: "Mala", price: 110, category: "Dairy"}, {name: "Condensed Milk", price: 220, category: "Dairy"},
-    {name: "Ghee", price: 600, category: "Dairy"}, {name: "Powdered Milk", price: 800, category: "Dairy"},
-    {name: "Sour Cream", price: 150, category: "Dairy"}, {name: "Mozzarella", price: 550, category: "Dairy"},
-    {name: "Cheddar", price: 500, category: "Dairy"}, {name: "Paneer", price: 400, category: "Dairy"},
-    {name: "Cottage Cheese", price: 350, category: "Dairy"}, {name: "Ice Cream", price: 600, category: "Dairy"},
-    {name: "Whipping Cream", price: 280, category: "Dairy"}, {name: "Skimmed Milk", price: 85, category: "Dairy"},
-    {name: "Soy Milk", price: 160, category: "Dairy"}, {name: "Almond Milk", price: 450, category: "Dairy"},
+    {name: "Fresh Milk", price: 70, category: "Dairy", unit: "packet"}, {name: "Yogurt", price: 120, category: "Dairy", unit: "cup"},
+    {name: "Cheese", price: 450, category: "Dairy", unit: "block"}, {name: "Butter", price: 300, category: "Dairy", unit: "tub"},
+    {name: "Margarine", price: 180, category: "Dairy", unit: "tub"}, {name: "Heavy Cream", price: 250, category: "Dairy", unit: "carton"},
+    {name: "Mala", price: 110, category: "Dairy", unit: "packet"}, {name: "Condensed Milk", price: 220, category: "Dairy", unit: "can"},
+    {name: "Ghee", price: 600, category: "Dairy", unit: "jar"}, {name: "Powdered Milk", price: 800, category: "Dairy", unit: "tin"},
+    {name: "Sour Cream", price: 150, category: "Dairy", unit: "tub"}, {name: "Mozzarella", price: 550, category: "Dairy", unit: "pack"},
+    {name: "Cheddar", price: 500, category: "Dairy", unit: "block"}, {name: "Paneer", price: 400, category: "Dairy", unit: "block"},
+    {name: "Cottage Cheese", price: 350, category: "Dairy", unit: "tub"}, {name: "Ice Cream", price: 600, category: "Dairy", unit: "tub"},
+    {name: "Whipping Cream", price: 280, category: "Dairy", unit: "carton"}, {name: "Skimmed Milk", price: 85, category: "Dairy", unit: "packet"},
+    {name: "Soy Milk", price: 160, category: "Dairy", unit: "carton"}, {name: "Almond Milk", price: 450, category: "Dairy", unit: "carton"},
 
     // GRAINS (20)
-    {name: "Rice", price: 210, category: "Grain"}, {name: "Maize Flour", price: 145, category: "Grain"},
-    {name: "Wheat Flour", price: 170, category: "Grain"}, {name: "Oats", price: 250, category: "Grain"},
-    {name: "Millet", price: 180, category: "Grain"}, {name: "Sorghum", price: 160, category: "Grain"},
-    {name: "Barley", price: 220, category: "Grain"}, {name: "Quinoa", price: 1200, category: "Grain"},
-    {name: "Pasta", price: 110, category: "Grain"}, {name: "Spaghetti", price: 100, category: "Grain"},
-    {name: "Macaroni", price: 95, category: "Grain"}, {name: "Brown Rice", price: 350, category: "Grain"},
-    {name: "Couscous", price: 400, category: "Grain"}, {name: "Cornmeal", price: 80, category: "Grain"},
-    {name: "Breadcrumbs", price: 150, category: "Grain"}, {name: "Popcorn", price: 200, category: "Grain"},
-    {name: "Noodles", price: 60, category: "Grain"}, {name: "Lentils", price: 240, category: "Grain"},
-    {name: "Green Grams", price: 220, category: "Grain"}, {name: "Kidney Beans", price: 180, category: "Grain"},
+    {name: "Rice", price: 210, category: "Grain", unit: "kg"}, {name: "Maize Flour", price: 145, category: "Grain", unit: "packet"},
+    {name: "Wheat Flour", price: 170, category: "Grain", unit: "packet"}, {name: "Oats", price: 250, category: "Grain", unit: "tin"},
+    {name: "Millet", price: 180, category: "Grain", unit: "kg"}, {name: "Sorghum", price: 160, category: "Grain", unit: "kg"},
+    {name: "Barley", price: 220, category: "Grain", unit: "kg"}, {name: "Quinoa", price: 1200, category: "Grain", unit: "packet"},
+    {name: "Pasta", price: 110, category: "Grain", unit: "packet"}, {name: "Spaghetti", price: 100, category: "Grain", unit: "packet"},
+    {name: "Macaroni", price: 95, category: "Grain", unit: "packet"}, {name: "Brown Rice", price: 350, category: "Grain", unit: "kg"},
+    {name: "Couscous", price: 400, category: "Grain", unit: "packet"}, {name: "Cornmeal", price: 80, category: "Grain", unit: "kg"},
+    {name: "Breadcrumbs", price: 150, category: "Grain", unit: "packet"}, {name: "Popcorn", price: 200, category: "Grain", unit: "packet"},
+    {name: "Noodles", price: 60, category: "Grain", unit: "packet"}, {name: "Lentils", price: 240, category: "Grain", unit: "kg"},
+    {name: "Green Grams", price: 220, category: "Grain", unit: "kg"}, {name: "Kidney Beans", price: 180, category: "Grain", unit: "kg"},
 
     // GROCERY (20)
-    {name: "Sugar", price: 160, category: "Grocery"}, {name: "Salt", price: 30, category: "Grocery"},
-    {name: "Cooking Oil", price: 350, category: "Grocery"}, {name: "Tea Leaves", price: 120, category: "Grocery"},
-    {name: "Coffee", price: 500, category: "Grocery"}, {name: "Honey", price: 400, category: "Grocery"},
-    {name: "Tomato Sauce", price: 150, category: "Grocery"}, {name: "Jam", price: 250, category: "Grocery"},
-    {name: "Peanut Butter", price: 350, category: "Grocery"}, {name: "Baking Powder", price: 60, category: "Grocery"},
-    {name: "Yeast", price: 40, category: "Grocery"}, {name: "Vinegar", price: 100, category: "Grocery"},
-    {name: "Soy Sauce", price: 280, category: "Grocery"}, {name: "Mayonnaise", price: 450, category: "Grocery"},
-    {name: "Mustard", price: 200, category: "Grocery"}, {name: "Black Pepper", price: 150, category: "Grocery"},
-    {name: "Curry Powder", price: 80, category: "Grocery"}, {name: "Cinnamon", price: 120, category: "Grocery"},
-    {name: "Biscuits", price: 50, category: "Grocery"}, {name: "Chocolate", price: 200, category: "Grocery"}
+    {name: "Sugar", price: 160, category: "Grocery", unit: "kg"}, {name: "Salt", price: 30, category: "Grocery", unit: "packet"},
+    {name: "Cooking Oil", price: 350, category: "Grocery", unit: "liter"}, {name: "Tea Leaves", price: 120, category: "Grocery", unit: "packet"},
+    {name: "Coffee", price: 500, category: "Grocery", unit: "jar"}, {name: "Honey", price: 400, category: "Grocery", unit: "jar"},
+    {name: "Tomato Sauce", price: 150, category: "Grocery", unit: "bottle"}, {name: "Jam", price: 250, category: "Grocery", unit: "jar"},
+    {name: "Peanut Butter", price: 350, category: "Grocery", unit: "jar"}, {name: "Baking Powder", price: 60, category: "Grocery", unit: "tin"},
+    {name: "Yeast", price: 40, category: "Grocery", unit: "sachet"}, {name: "Vinegar", price: 100, category: "Grocery", unit: "bottle"},
+    {name: "Soy Sauce", price: 280, category: "Grocery", unit: "bottle"}, {name: "Mayonnaise", price: 450, category: "Grocery", unit: "jar"},
+    {name: "Mustard", price: 200, category: "Grocery", unit: "jar"}, {name: "Black Pepper", price: 150, category: "Grocery", unit: "sachet"},
+    {name: "Curry Powder", price: 80, category: "Grocery", unit: "sachet"}, {name: "Cinnamon", price: 120, category: "Grocery", unit: "sachet"},
+    {name: "Biscuits", price: 50, category: "Grocery", unit: "packet"}, {name: "Chocolate", price: 200, category: "Grocery", unit: "bar"}
 ];
 
 const select = document.getElementById("productSelect");
@@ -112,7 +112,32 @@ document.getElementById("calcBtn").onclick = function() {
             alert(`10% Bulk Discount Applied!`);
         }
 
-        receiptDisplay.innerText = `Total for ${qtyNum} ${productName}: KSh ${total.toFixed(2)}`;
+        // Logic to handle Plurals and Units
+        let displayLabel = "";
+        if (qtyNum === 1) {
+            displayLabel = `1 ${product.name}`;
+        } else {
+            if (product.unit === "piece") {
+                // Pluralize the product name directly
+                if (product.name.endsWith("y")) {
+                    displayLabel = `${qtyNum} ${product.name.slice(0, -1)}ies`;
+                } else if (product.name.endsWith("o")) {
+                    displayLabel = `${qtyNum} ${product.name}es`;
+                } else {
+                    displayLabel = `${qtyNum} ${product.name}s`;
+                }
+            } else {
+                // Pluralize the unit instead of the uncountable product name
+                let unitPlural = product.unit;
+                if (unitPlural.endsWith("y")) unitPlural = unitPlural.slice(0, -1) + "ies";
+                else if (unitPlural === "box") unitPlural = "boxes";
+                else unitPlural += "s";
+                
+                displayLabel = `${qtyNum} ${unitPlural} of ${product.name}`;
+            }
+        }
+
+        receiptDisplay.innerText = `Total for ${displayLabel}: KSh ${total.toFixed(2)}`;
         receiptBox.classList.remove("hidden");
     } else {
         alert("Please select an item and a valid quantity.");
