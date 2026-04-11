@@ -55,3 +55,84 @@ button{
     width: 20%;
     font-weight: bold;
 }
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.filter-btn {
+    width: auto;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    color: #555;
+    border: 1.5px solid #ddd;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e0f2e9;
+    color: #2e7d32;
+    border-color: #2e7d32;
+}
+
+/* This is what was missing — the active pill style */
+.filter-btn.active {
+    background-color: #2e7d32;
+    color: white;
+    border-color: #2e7d32;
+}
+
+/* Fix label + select stacking */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 14px;
+    background: #fafafa;
+    outline: none;
+}
+
+select:focus {
+    border-color: #2e7d32;
+}
+
+/* Receipt box */
+.receipt-box {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: #f1f8f1;
+    border-left: 4px solid #2e7d32;
+    border-radius: 8px;
+}
+
+.receipt-box.hidden { display: none; }
+
+#receipt {
+    font-weight: 600;
+    color: #1b5e20;
+    font-size: 15px;
+}
