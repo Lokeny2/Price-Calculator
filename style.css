@@ -173,3 +173,43 @@ input:focus, select:focus {
     color: var(--forest);
     font-size: 15px;
 }
+
+.cart-container {
+    background-color: var(--cream);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1.5px solid var(--border);
+}
+#cartList {
+    list-style: none; /* Removes the dots */
+    margin-bottom: 15px;
+}
+
+#cartList li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--green-light);
+    color: var(--ink);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between; 
+}
+.cart-total {
+    border-top: 2px dashed var(--green); /* Makes it look like a tear-off receipt */
+    padding-top: 15px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.cart-total p {
+    font-family: 'Fraunces', serif; /* Matching your header font */
+    font-size: 18px;
+    color: var(--forest);
+}
+
+#totalDisplay {
+    font-weight: 700;
+    color: var(--amber); /* Using your highlight color for the price */
+    font-size: 22px;
+}

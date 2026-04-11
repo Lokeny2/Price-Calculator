@@ -61,6 +61,8 @@ const inventory = [
     {name: "Biscuits", price: 50, category: "Grocery", unit: "packet"}, {name: "Chocolate", price: 200, category: "Grocery", unit: "bar"}
 ];
 
+let cart = [];
+
 const select = document.getElementById("productSelect");
 
 // 2: Logic for Filtering and Populating the Dropdown
@@ -88,6 +90,7 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
         
         document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
         this.classList.add("active");
+
     };
 });
 
@@ -139,10 +142,48 @@ document.getElementById("calcBtn").onclick = function() {
 
         receiptDisplay.innerText = `Total for ${displayLabel}: KSh ${total.toFixed(2)}`;
         receiptBox.classList.remove("hidden");
+
+        let cartItem = {
+            name: productName,
+            qty: qtyNum,
+            pricePerUnit: product.price,
+            totalPrice: total
+};
+ 
+        // Searching for a match
+        let existingItem = cart.find(item => item.name === productName);
+
+        if (existingItem) {
+          existingItem.qty += qtyNum;
+          existingItem.totalPrice += total;
+          } else {
+    cart.push(cartItem);
+}
+        renderCart();
+
+        
     } else {
         alert("Please select an item and a valid quantity.");
     }
+
 };
+
+function renderCart() {
+    let grandTotal = 0;
+    const cartContainer = document.getElementById("cartList");
+    const totalDisplay = document.getElementById("totalDisplay"); // Step 1: Find the display
+    
+    cartContainer.innerHTML = "";
+
+    cart.forEach((item) => {
+        grandTotal += item.totalPrice;
+  
+        cartContainer.innerHTML += `<li>${item.name} x ${item.qty} - KSh ${item.totalPrice.toFixed(2)}</li>`;
+    });
+
+   
+    totalDisplay.innerText = grandTotal.toFixed(2);
+}
 
 // 5: UI Reset State
 document.getElementById("clearBtn").onclick = function() {
