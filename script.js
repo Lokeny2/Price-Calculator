@@ -34,56 +34,61 @@ const inventory = [
     {name: "Salt", price: 30, category: "Grocery"}
 ];
 
+// Automatically populate the dropdown menu
+const select = document.getElementById("productSelect");
+
+inventory.forEach(item => {
+    let option = document.createElement("option");
+    option.text = item.name; // Changed .name to .text to display it correctly
+    option.value = item.name;
+    select.add(option);
+});
+
 // Speaking With Calculate Button
 document.getElementById("calcBtn").onclick = function(){
-    const searchFor = document.getElementById("fruitInput").value;
+    const searchFor = document.getElementById("productSelect").value;
     const quantity = document.getElementById("qtyInput").value;
     const display = document.getElementById("receipt");
 
+    let foundPrice = 0;
+    let itemFound = false; // Added missing declaration
 
-let foundPrice = 0;
-let itemFound = false;
-
-//The loop
-for(let i = 0;i < inventory.length;i++){
-    if(inventory[i].toLowerCase() === searchFor.toLowerCase()){
-        foundPrice = prices[i];
-        itemFound = true;
-        break;
-}
-}
-
-//The Output
-if(itemFound){
-    const qtyNum = Number(quantity)
-    let total = foundPrice * qtyNum;
-    
-    let discountMessage = "";
-
-    if(qtyNum > 10){
-        total = total * 0.9;
-        
-        alert("10% Bulk Discount Applied! ✅ You  saved KSh " + (foundPrice * qtyNum * 0.1)
-        .toFixed(2) + "!")
+    //The loop
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i].name.toLowerCase() === searchFor.toLowerCase()){
+            foundPrice = inventory[i].price; // Corrected from inventory.price[i]
+            itemFound = true;
+            break;
+        }
     }
 
-const plural = qtyNum > 1 ? "s" : "";
+    //The Output
+    if(itemFound){
+        const qtyNum = Number(quantity);
+        let total = foundPrice * qtyNum;
+        
+        // Apply discount if quantity is over 10
+        if(qtyNum > 10){
+            total = total * 0.9;
+            alert("10% Bulk Discount Applied! ✅ You saved KSh " + (foundPrice * qtyNum * 0.1).toFixed(2) + "!");
+        }
 
-    display.innerText = `Total for ${qtyNum} ${searchFor}${plural}: KSh.${total.toFixed(2)}.`;
-    display.style.color = "green";
-}
-else{
-    display.innerText = "Sorry, we don't have that fruit today."
-    display.style.color = "red"
-}
-}
+        const plural = qtyNum > 1 ? "s" : "";
+
+        display.innerText = `Total for ${qtyNum} ${searchFor}${plural}: KSh ${total.toFixed(2)}.`;
+        display.style.color = "green";
+    }
+    else{
+        display.innerText = "Please select a valid item and quantity.";
+        display.style.color = "red";
+    }
+};
 
 // Speaking with the Clear Button
 document.getElementById("clearBtn").onclick = function(){
-    // 1.Clear input boxes
-    document.getElementById("fruitInput").value = "";
+    // 1.Clear input boxes (Updated fruitInput to productSelect)
+    document.getElementById("productSelect").value = "";
     document.getElementById("qtyInput").value = "";
-
 
     // 2.Clear result message
     document.getElementById("receipt").innerText = "";
