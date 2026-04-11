@@ -1,4 +1,4 @@
-// 1. The Data Base (20 Fruits + 10 Mini-Mart Essentials)
+// STEP 1: Inventory Database
 const inventory = [
     {name: "Apple", price: 50, category: "Fruit"},
     {name: "banana", price: 30, category: "Fruit"},
@@ -20,8 +20,6 @@ const inventory = [
     {name: "Guava", price: 45, category: "Fruit"},
     {name: "Tangerine", price: 35, category: "Fruit"},
     {name: "Kiwi", price: 110, category: "Fruit"},
-    
-    //  Non-Fruit Items 
     {name: "Milk", price: 70, category: "Dairy"},
     {name: "Bread", price: 65, category: "Bakery"},
     {name: "Egg", price: 15, category: "Poultry"},
@@ -34,62 +32,72 @@ const inventory = [
     {name: "Salt", price: 30, category: "Grocery"}
 ];
 
-// Automatically populate the dropdown menu
 const select = document.getElementById("productSelect");
 
-inventory.forEach(item => {
-    let option = document.createElement("option");
-    option.text = item.name; // Changed .name to .text to display it correctly
-    option.value = item.name;
-    select.add(option);
+// STEP 2: Function to Filter Inventory and Refill Dropdown
+function populateDropdown(filterCategory) {
+    // Clear the dropdown and add the default message
+    select.innerHTML = '<option value="" disabled selected>Choose a product...</option>';
+
+    const filteredItems = inventory.filter(item => {
+        // Compare lowercase to lowercase to prevent typos from breaking the filter
+        return filterCategory.toLowerCase() === "all" || 
+               item.category.toLowerCase() === filterCategory.toLowerCase();
+    });
+
+    filteredItems.forEach(item => {
+        let option = document.createElement("option");
+        option.text = item.name;
+        option.value = item.name;
+        select.add(option);
+    });
+}
+
+// STEP 3: Setup Click Listeners for All Filter Buttons
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.onclick = function() {
+        const category = this.getAttribute("data-category");
+        
+        // Populate the dropdown based on the button's data-category attribute
+        populateDropdown(category);
+
+        // UI: Move the 'active' styling to the clicked button
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+    };
 });
 
-// Speaking With Calculate Button
-document.getElementById("calcBtn").onclick = function(){
-    const searchFor = document.getElementById("productSelect").value;
+// STEP 4: Price Calculation Logic
+document.getElementById("calcBtn").onclick = function() {
+    const productName = select.value;
     const quantity = document.getElementById("qtyInput").value;
-    const display = document.getElementById("receipt");
+    const receiptBox = document.getElementById("receiptBox");
+    const receiptDisplay = document.getElementById("receipt");
 
-    let foundPrice = 0;
-    let itemFound = false; // Added missing declaration
+    const product = inventory.find(item => item.name === productName);
 
-    //The loop
-    for(let i = 0; i < inventory.length; i++){
-        if(inventory[i].name.toLowerCase() === searchFor.toLowerCase()){
-            foundPrice = inventory[i].price; // Corrected from inventory.price[i]
-            itemFound = true;
-            break;
-        }
-    }
-
-    //The Output
-    if(itemFound){
+    if (product && quantity > 0) {
         const qtyNum = Number(quantity);
-        let total = foundPrice * qtyNum;
+        let total = product.price * qtyNum;
         
-        // Apply discount if quantity is over 10
-        if(qtyNum > 10){
-            total = total * 0.9;
-            alert("10% Bulk Discount Applied! ✅ You saved KSh " + (foundPrice * qtyNum * 0.1).toFixed(2) + "!");
+        if (qtyNum > 10) {
+            total *= 0.9;
+            alert(`10% Bulk Discount Applied!`);
         }
 
-        const plural = qtyNum > 1 ? "s" : "";
-
-        display.innerText = `Total for ${qtyNum} ${searchFor}${plural}: KSh ${total.toFixed(2)}.`;
-        display.style.color = "green";
-    }
-    else{
-        display.innerText = "Please select a valid item and quantity.";
-        display.style.color = "red";
+        receiptDisplay.innerText = `Total for ${qtyNum} ${productName}: KSh ${total.toFixed(2)}`;
+        receiptBox.classList.remove("hidden");
+    } else {
+        alert("Please select an item and a quantity greater than 0.");
     }
 };
 
-// Speaking with the Clear Button
-document.getElementById("clearBtn").onclick = function(){
-    // 1.Clear input boxes (Updated fruitInput to productSelect)
-    document.getElementById("productSelect").value = "";
+// STEP 5: Reset UI
+document.getElementById("clearBtn").onclick = function() {
+    select.value = "";
     document.getElementById("qtyInput").value = "";
-
-    // 2.Clear result message
-    document.getElementById("receipt").innerText = "";
+    document.getElementById("receiptBox").classList.add("hidden");
 };
+
+// Final Initialization
+populateDropdown("All");
