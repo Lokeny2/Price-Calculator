@@ -1,95 +1,99 @@
-/* 1.The Reset */
+/* 1. The Reset & Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', sans-serif; /* Updated to new primary font */
 }
 
-/* 2.The Body */
+/* 2. Style Variables (The Colour Story) */
+:root {
+    --forest:      #025539;
+    --green:       #1e7a46;
+    --green-light: #e8f5ee;
+    --amber:       #d4860a;
+    --cream:       #faf9f6;
+    --ink:         #1c1c1a;
+    --muted:       #6b7167;
+    --border:      #e0ddd6;
+    --radius-sm:   8px;
+    --radius-md:   14px;
+    --radius-lg:   22px;
+}
+
+/* 3. The Body */
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #025539;
+    background-color: var(--forest);
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
 }
 
-/* 3.The Color */
+/* 4. The Calculator Card */
 .calculator{
-    background-color: white;
+    background-color: var(--cream);
     padding: 30px;
-    max-width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* 4.The inputs */
-input{
     width: 100%;
-    padding:12px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    border-radius: 8px;
-    border: 2px solid #ddd;
+    max-width: 420px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+    overflow: hidden;
 }
 
-/* 5.Buttons */
-button{
-    width: 100%;
-    background-color: #2e7d32;
-    padding: 16px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 18px;
+/* 5. The Header Band */
+.calc-header {
+    background: var(--green);
+    padding: 28px 28px 22px;
+    margin: -30px -30px 20px -30px; /* Bleed to edges of card */
+    position: relative;
 }
 
-/* 6.The Clear Button */
-#clearBtn{
-    background-color: rgb(3, 51, 54);
-    margin-top: 10px;
-    border: 2px solid rgb(152, 226, 4);
-    color: white;
-    padding: 6px;
-    width: 20%;
-    font-weight: bold;
+.calc-header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: #ffffff;
 }
 
+.calc-header .subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+}
+
+/* 6. Filter Row & Pills */
 .filter-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 0;
+    gap: 7px;
+    margin-bottom: 16px;
 }
 
 .filter-btn {
     width: auto;
-    padding: 6px 14px;
-    font-size: 13px;
+    padding: 5px 15px;
+    font-size: 12px;
     font-weight: 600;
     border-radius: 20px;
-    background-color: #f0f0f0;
-    color: #555;
-    border: 1.5px solid #ddd;
+    background: #fff;
+    color: var(--muted);
+    border: 1.5px solid var(--border);
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.17s ease;
 }
 
-.filter-btn:hover {
-    background-color: #e0f2e9;
-    color: #2e7d32;
-    border-color: #2e7d32;
-}
-
-/* The active pill style */
 .filter-btn.active {
-    background-color: #2e7d32;
+    background-color: var(--green);
     color: white;
-    border-color: #2e7d32;
+    border-color: var(--green);
 }
 
-/* Fix label + select stacking */
+/* 7. The Inputs & Labels */
 .input-section {
     display: flex;
     flex-direction: column;
@@ -98,41 +102,74 @@ button{
 }
 
 label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    color: #777;
+    color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 10px;
+    letter-spacing: 0.7px;
 }
 
-select {
+input[type="number"], select {
     width: 100%;
-    padding: 11px 14px;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    font-size: 14px;
-    background: #fafafa;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    background: #ffffff;
     outline: none;
+    transition: border-color 0.2s;
 }
 
-select:focus {
-    border-color: #2e7d32;
+input:focus, select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(30,122,70,0.1);
 }
 
-/* Receipt box */
+/* 8. Action Buttons */
+.action-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#calcBtn {
+    flex: 2;
+    background-color: var(--green);
+    padding: 14px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+}
+
+#calcBtn:hover { background-color: var(--forest); }
+
+/* 9. The Clear Button */
+#clearBtn{
+    flex: 1;
+    background-color: #fff;
+    border: 1.5px solid #fca5a5;
+    color: #b91c1c;
+    padding: 14px;
+    font-weight: bold;
+    border-radius: var(--radius-md);
+}
+
+#clearBtn:hover { background: #fff5f5; }
+
+/* 10. Receipt Box */
 .receipt-box {
     margin-top: 14px;
     padding: 14px 16px;
-    background: #f1f8f1;
-    border-left: 4px solid #2e7d32;
-    border-radius: 8px;
+    background: var(--green-light);
+    border-left: 4px solid var(--green);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .receipt-box.hidden { display: none; }
 
 #receipt {
     font-weight: 600;
-    color: #1b5e20;
+    color: var(--forest);
     font-size: 15px;
 }
