@@ -5,7 +5,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'DM Sans', sans-serif; /* Updated to new primary font */
+    font-family: 'DM Sans', sans-serif;
 }
 
 /* 2. Style Variables (The Colour Story) */
@@ -49,7 +49,7 @@ body{
 .calc-header {
     background: var(--green);
     padding: 28px 28px 22px;
-    margin: -30px -30px 20px -30px; /* Bleed to edges of card */
+    margin: -30px -30px 20px -30px;
     position: relative;
 }
 
@@ -75,7 +75,6 @@ body{
 }
 
 .filter-btn {
-    width: auto;
     padding: 5px 15px;
     font-size: 12px;
     font-weight: 600;
@@ -116,7 +115,6 @@ input[type="number"], select {
     border: 1.5px solid var(--border);
     background: #ffffff;
     outline: none;
-    transition: border-color 0.2s;
 }
 
 input:focus, select:focus {
@@ -131,21 +129,29 @@ input:focus, select:focus {
     margin-bottom: 10px;
 }
 
-#calcBtn {
-    flex: 2;
-    background-color: var(--green);
+#calcBtn, #addToCartBtn {
     padding: 14px;
-    color: white;
-    border: none;
-    cursor: pointer;
     border-radius: var(--radius-md);
     font-weight: 600;
+    cursor: pointer;
+    border: none;
 }
 
-#calcBtn:hover { background-color: var(--forest); }
+#calcBtn {
+    flex: 1;
+    background-color: var(--green-light);
+    color: var(--forest);
+    border: 1.5px solid var(--green);
+}
+
+#addToCartBtn {
+    flex: 2;
+    background: var(--amber);
+    color: white;
+}
 
 /* 9. The Clear Button */
-#clearBtn{
+#clearBtn {
     flex: 1;
     background-color: #fff;
     border: 1.5px solid #fca5a5;
@@ -155,9 +161,7 @@ input:focus, select:focus {
     border-radius: var(--radius-md);
 }
 
-#clearBtn:hover { background: #fff5f5; }
-
-/* 10. Receipt Box */
+/* 10. Receipt Box (Preview) */
 .receipt-box {
     margin-top: 14px;
     padding: 14px 16px;
@@ -171,9 +175,9 @@ input:focus, select:focus {
 #receipt {
     font-weight: 600;
     color: var(--forest);
-    font-size: 15px;
 }
 
+/* 11. Shopping Cart UI */
 .cart-container {
     background-color: var(--cream);
     margin-top: 20px;
@@ -182,8 +186,9 @@ input:focus, select:focus {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border: 1.5px solid var(--border);
 }
+
 #cartList {
-    list-style: none; /* Removes the dots */
+    list-style: none;
     margin-bottom: 15px;
 }
 
@@ -195,21 +200,18 @@ input:focus, select:focus {
     display: flex;
     justify-content: space-between; 
 }
+
 .cart-total {
-    border-top: 2px dashed var(--green); /* Makes it look like a tear-off receipt */
+    border-top: 2px dashed var(--green);
     padding-top: 15px;
     margin-top: 10px;
     text-align: right;
-}
-
-.cart-total p {
-    font-family: 'Fraunces', serif; /* Matching your header font */
-    font-size: 18px;
+    font-family: 'Fraunces', serif;
     color: var(--forest);
 }
 
 #totalDisplay {
     font-weight: 700;
-    color: var(--amber); /* Using your highlight color for the price */
+    color: var(--amber);
     font-size: 22px;
 }
