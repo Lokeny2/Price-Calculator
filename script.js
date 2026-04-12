@@ -157,6 +157,7 @@ document.getElementById("calcBtn").onclick = function() {
           existingItem.qty += qtyNum;
           existingItem.totalPrice += total;
           } else {
+    // 3. If it's new, add it
     cart.push(cartItem);
 }
         renderCart();
