@@ -61,7 +61,7 @@ const inventory = [
     {name: "Biscuits", price: 50, category: "Grocery", unit: "packet"}, {name: "Chocolate", price: 200, category: "Grocery", unit: "bar"}
 ];
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("miniMartCart")) || [];
 
 const select = document.getElementById("productSelect");
 
@@ -143,30 +143,47 @@ document.getElementById("calcBtn").onclick = function() {
         receiptDisplay.innerText = `Total for ${displayLabel}: KSh ${total.toFixed(2)}`;
         receiptBox.classList.remove("hidden");
 
-        let cartItem = {
-            name: productName,
-            qty: qtyNum,
-            pricePerUnit: product.price,
-            totalPrice: total
-};
- 
-        // Searching for a match
-        let existingItem = cart.find(item => item.name === productName);
-
-        if (existingItem) {
-          existingItem.qty += qtyNum;
-          existingItem.totalPrice += total;
-          } else {
-    // 3. If it's new, add it
-    cart.push(cartItem);
-}
-        renderCart();
-
-        
     } else {
         alert("Please select an item and a valid quantity.");
     }
 
+};
+
+document.getElementById("addToCartBtn").onclick = function() {
+    const productName = select.value;
+    const quantity = document.getElementById("qtyInput").value;
+    const product = inventory.find(item => item.name === productName);
+
+    if (product && quantity > 0) {
+        const qtyNum = Number(quantity);
+        let total = product.price * qtyNum;
+        
+        // Applying the bulk discount logic 
+        if (qtyNum > 10) total *= 0.9;
+
+        let cartItem = {
+            name: productName,
+            qty: qtyNum,
+            totalPrice: total
+        };
+
+        // The "Search and Merge" logic 
+        let existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.qty += qtyNum;
+            existingItem.totalPrice += total;
+        } else {
+            cart.push(cartItem);
+        }
+
+        renderCart();
+
+        localStorage.setItem("miniMartCart", JSON.stringify(cart));
+
+        document.getElementById("receiptBox").classList.add("hidden");
+    } else {
+        alert("Select a product first!");
+    }
 };
 
 function renderCart() {
@@ -192,3 +209,5 @@ document.getElementById("clearBtn").onclick = function() {
     document.getElementById("qtyInput").value = "";
     document.getElementById("receiptBox").classList.add("hidden");
 };
+
+renderCart();
